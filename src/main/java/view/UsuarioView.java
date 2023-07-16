@@ -27,7 +27,7 @@ public class UsuarioView {
             switch (escolha){
                 case 0: //Sair
                     System.out.println("Saindo...");
-                    //usuarioService.fecharConexao();
+                    usuarioService.fecharConexao();
                     break;
                 case 1: //Cadastrar Rebelde
                     System.out.println("Nome:");
@@ -170,7 +170,7 @@ public class UsuarioView {
 
     public void menu(){
         System.out.println("Boas-vindas!");
-        System.out.println("Digite uma das opções (em caso de dúvida, consulte o manual)");
+        System.out.println("Digite uma das opções (em caso de dúvida, consulte o manual(README))");
         System.out.println("0) Sair");
         System.out.println("1) Cadastrar Rebelde");
         System.out.println("2) Remover Cadastro");

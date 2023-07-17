@@ -10,6 +10,10 @@ public class UsuarioService {
 
     private Statement statement;
 
+    public Statement getStatement() {
+        return statement;
+    }
+
     public UsuarioService(){
         try {
             statement = getConnection().createStatement();
@@ -41,7 +45,7 @@ public class UsuarioService {
     }
 
     //Remover Cadastro
-    public void removerRebelde(long id){
+    public void removerRebelde(String id){
         if (identificarCadastro(id) == true){
             String sql = "delete from rebeldes where id_rebeldes = '" + id + "';";
             try {
@@ -115,7 +119,7 @@ public class UsuarioService {
 
     //Adicionar Reporte
 
-    public void adicionarReporte (long id) {
+    public void adicionarReporte (String id) {
         String sql = "SELECT * FROM rebeldes WHERE id_rebeldes = '" + id + "'";
         try {
             ResultSet resultSet1 = statement.executeQuery(sql);
@@ -136,7 +140,7 @@ public class UsuarioService {
     }
 
     //Alterar Localizacao
-    public void alterarLocalizacao(long id, String local){
+    public void alterarLocalizacao(String id, String local){
         String sql = "UPDATE rebeldes SET localizacao = '" + local + "' WHERE id_rebeldes = " + id + ";";
         try {
             statement.executeUpdate(sql);
@@ -148,7 +152,7 @@ public class UsuarioService {
 
     //Loja
     //Identificar Cadastro com Créditos
-    public boolean identificarCadastroLoja(long id){
+    public boolean identificarCadastroLoja(String id){
             boolean existe = false;
             String sql = "SELECT FROM inventario WHERE rebelde_id = "+ id + ";";
             try {
@@ -162,7 +166,7 @@ public class UsuarioService {
             return existe;
     }
     //Adquirir Créditos
-    public void adquirirCreditos(long id){
+    public void adquirirCreditos(String id){
         String sql = "insert into inventario (rebelde_id, qtdarma, qtdmunicao, qtdagua, qtdcomida, creditos) values (" + id + ", '0', '0', '0', '0', '500');";
         try {
             statement.executeUpdate(sql);
@@ -172,7 +176,7 @@ public class UsuarioService {
         }
     }
     //Ver inventário
-    public void verInventario(long id) {
+    public void verInventario(String id) {
         String sql = "select * from inventario where rebelde_id = " + id + ";";
         System.out.println("Inventário:");
         try {
@@ -216,7 +220,7 @@ public class UsuarioService {
         }
         return nomeItem;
     }
-    public void comprarItem(long id, String nomeItem,int valor){
+    public void comprarItem(String id, String nomeItem,int valor){
         String sql = "select * from inventario where rebelde_id = '" + id + "';";
         try {
             ResultSet resultSet = statement.executeQuery(sql);
@@ -233,7 +237,7 @@ public class UsuarioService {
     }
 
     //Identificar Cadastro
-    public boolean identificarCadastro (long id) {
+    public boolean identificarCadastro (String id) {
         boolean existe = false;
         String sql = "SELECT FROM rebeldes WHERE id_rebeldes = '"+ id + "'";
         try {
@@ -252,9 +256,9 @@ public class UsuarioService {
     }
 
     //Identificar Status
-    public String identificarStatus(long id){
+    public String identificarStatus(String id){
         String status = null;
-        String sql = "SELECT status FROM rebeldes WHERE id_rebeldes = '"+ id + "'";
+        String sql = "SELECT status FROM rebeldes WHERE id_rebeldes = '" + id + "'";
         try {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {

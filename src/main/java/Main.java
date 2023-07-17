@@ -1,5 +1,4 @@
-import view.UsuarioView;
-import visual.VisualMenuPrincipal;
+import visual.VisualLogin;
 
 import javax.swing.*;
 
@@ -9,7 +8,8 @@ public class Main extends JFrame {
 //        UsuarioView usuarioView = new UsuarioView();
 //        usuarioView.inicializacao();
 
-        VisualMenuPrincipal visualMenuPrincipal = new VisualMenuPrincipal();
-        visualMenuPrincipal.iniciarMenu();
+        VisualLogin visualLogin = new VisualLogin();
+        visualLogin.iniciarLogin();
+
     }
 }

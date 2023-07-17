@@ -40,7 +40,7 @@ public class VisualCadastrarRebelde extends JFrame{
     public void iniciarCadastro(){
         VisualCadastrarRebelde vcr = new VisualCadastrarRebelde();
         vcr.setContentPane(vcr.cadastroRebelde);
-        vcr.setTitle("Menu Principal");
+        vcr.setTitle("Cadastrar Novo Rebelde");
         vcr.setBounds(600, 200, 400, 450);
         vcr.setVisible(true);
         vcr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

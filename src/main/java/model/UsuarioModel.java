@@ -1,5 +1,7 @@
 package model;
 
+import visual.VisualLogin;
+
 public class UsuarioModel {
 
     private Long id_rebeldes;

@@ -1,8 +1,13 @@
 package visual;
 
+import com.sun.tools.javac.Main;
+import service.UsuarioService;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class VisualMenuPrincipal extends JFrame{
     private JPanel menuPrincipal;
@@ -18,6 +23,10 @@ public class VisualMenuPrincipal extends JFrame{
     private JButton btnComprar;
     private JButton btnLocal;
     private JButton btnExtra;
+    private String id;
+
+    VisualLogin vl = new VisualLogin();
+    UsuarioService usuarioService = new UsuarioService();
 
     public VisualMenuPrincipal() {
         btnManual.addActionListener(new ActionListener() {
@@ -30,8 +39,28 @@ public class VisualMenuPrincipal extends JFrame{
         btnCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VisualCadastrarRebelde vcr = new VisualCadastrarRebelde();
-                vcr.iniciarCadastro();
+                String sql = "SELECT id_login FROM login;";
+                try {
+                    ResultSet resultSet = usuarioService.getStatement().executeQuery(sql);
+                    while (resultSet.next()){
+                        id = resultSet.getString("id_login");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                    VisualCadastrarRebelde vcr = new VisualCadastrarRebelde();
+                    vcr.iniciarCadastro();
+                } else {
+                    JOptionPane.showMessageDialog(btnCadastrar, "Traidores não podem cadastrar novos integrantes");
+                }
+            }
+        });
+
+        btnRemover.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

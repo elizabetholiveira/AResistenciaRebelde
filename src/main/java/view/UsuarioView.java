@@ -33,7 +33,7 @@ public class UsuarioView {
                     System.out.println("Nome:");
                     String nome = entrada.nextLine();
                     System.out.println("Idade:");
-                    int idade = entrada.nextInt();
+                    String idade = entrada.next();
                     System.out.println("Gênero:");
                     entrada.nextLine();
                     String genero = entrada.nextLine();

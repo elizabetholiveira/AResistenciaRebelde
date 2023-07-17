@@ -28,7 +28,7 @@ public class UsuarioService {
     }
 
     //Cadastrar Rebelde
-    public void cadastrarRebelde(String nome, int idade, String genero, String localizacao){
+    public void cadastrarRebelde(String nome, String idade, String genero, String localizacao){
         String sql = "insert into rebeldes (nome, idade, genero, localizacao, status, reportes) values ('" + nome + "', '"
                 + idade + "', '" + genero + "', '" + localizacao + "', 'Rebelde', '0');";
         try {

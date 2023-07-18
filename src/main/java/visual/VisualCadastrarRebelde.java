@@ -5,8 +5,6 @@ import service.UsuarioService;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class VisualCadastrarRebelde extends JFrame{
     private JPanel cadastroRebelde;

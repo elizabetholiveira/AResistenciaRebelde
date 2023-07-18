@@ -1,8 +1,12 @@
 package service;
 
+import visual.VisualVerCadastros;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import static connection.Conexao.getConnection;
 
@@ -61,10 +65,23 @@ public class UsuarioService {
 
     //Ver Cadastros
     public void verCadastros(){
+        String mensagem = null;
+        List<String> lista = new ArrayList();
+        VisualVerCadastros vvc = new VisualVerCadastros();
         String sql = "select * from rebeldes order by id_rebeldes ASC;";
         try {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
+                mensagem =  "ID: " + resultSet.getInt("id_rebeldes") + " | Nome: "
+                        + resultSet.getString("nome") + " | Idade: "
+                        + resultSet.getInt("idade") + " | Gênero: "
+                        + resultSet.getString("genero") + " | Localização: "
+                        + resultSet.getString("localizacao") + " | Status: "
+                        + resultSet.getString("status") + " | Reportes: "
+                        + resultSet.getInt("reportes") + ";";
+
+                lista.add(mensagem);
+
                 System.out.println("ID: " + resultSet.getInt("id_rebeldes") + " | Nome: "
                         + resultSet.getString("nome") + " | Idade: "
                         + resultSet.getInt("idade") + " | Gênero: "

@@ -89,14 +89,14 @@ public class UsuarioView {
 //                    System.out.println("Digite o ID do rebelde");
 //                    id = entrada.next();
 //                    if (usuarioService.identificarCadastro(id) == true){
-//                        if (usuarioService.identificarStatus(id).equals("Rebelde")) {
-//                            if (usuarioService.identificarCadastroLoja(id) == false) {
-//                                usuarioService.adquirirCreditos(id);
-//                            } else {
-//                                System.out.println("Esse ID já resgatou seus créditos!");
-//                            }
-//                        } else {
-//                            System.out.println("IDs marcados como traidores não podem receber créditos!");
+////                        if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+////                            if (usuarioService.identificarCadastroLoja(id) == false) {
+////                                usuarioService.adquirirCreditos(id);
+////                            } else {
+////                                System.out.println("Esse ID já resgatou seus créditos!");
+////                            }
+////                        } else {
+////                            System.out.println("IDs marcados como traidores não podem receber créditos!");
 //                        }
 //                    }
 //                    break;

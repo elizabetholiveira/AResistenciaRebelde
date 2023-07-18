@@ -1,6 +1,5 @@
 package visual;
 
-import com.sun.tools.javac.Main;
 import service.UsuarioService;
 
 import javax.swing.*;
@@ -60,7 +59,78 @@ public class VisualMenuPrincipal extends JFrame{
         btnRemover.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String sql = "SELECT id_login FROM login;";
+                try {
+                    ResultSet resultSet = usuarioService.getStatement().executeQuery(sql);
+                    while (resultSet.next()){
+                        id = resultSet.getString("id_login");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                    VisualRemoverCadastro vrc = new VisualRemoverCadastro();
+                    vrc.iniciarRemocao();
+                } else {
+                    JOptionPane.showMessageDialog(btnCadastrar, "Traidores não podem remover integrantes");
+                }
+            }
+        });
+        btnCadastros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String sql = "SELECT id_login FROM login;";
+                try {
+                    ResultSet resultSet = usuarioService.getStatement().executeQuery(sql);
+                    while (resultSet.next()){
+                        id = resultSet.getString("id_login");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                    VisualVerCadastros vvc = new VisualVerCadastros();
+                } else {
+                    JOptionPane.showMessageDialog(btnCadastrar, "Traidores não podem visualizar cadastros");
+                }
+            }
+        });
+        btnReportar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String sql = "SELECT id_login FROM login;";
+                try {
+                    ResultSet resultSet = usuarioService.getStatement().executeQuery(sql);
+                    while (resultSet.next()){
+                        id = resultSet.getString("id_login");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                    VisualReportarTraidor vrt = new VisualReportarTraidor();
+                } else {
+                    JOptionPane.showMessageDialog(btnCadastrar, "Traidores não podem reportar");
+                }
+            }
+        });
+        btnRelatorio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String sql = "SELECT id_login FROM login;";
+                try {
+                    ResultSet resultSet = usuarioService.getStatement().executeQuery(sql);
+                    while (resultSet.next()){
+                        id = resultSet.getString("id_login");
+                    }
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                    VisualVerRelatorio vvr = new VisualVerRelatorio();
+                } else {
+                    JOptionPane.showMessageDialog(btnCadastrar, "Traidores não podem visualizar relatórios");
+                }
             }
         });
     }

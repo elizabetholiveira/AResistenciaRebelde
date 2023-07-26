@@ -8,9 +8,9 @@ Sentimos muito pela falta de acessibilidade temporária para nossos RcD (Rebelde
 
 ## Instruções de uso:
 
-### Cadastrar Rebelde:
+### Cadastrar view.Rebelde:
 
-Essa opção permite cadastrar um novo rebelde. (Todo cadastro novo é automaticamente salvo como Rebelde)
+Essa opção permite cadastrar um novo rebelde. (Todo cadastro novo é automaticamente salvo como view.Rebelde)
 
 No novo cadastro você precisa inserir os seguintes dados:
 
@@ -25,9 +25,9 @@ Aqui você pode remover um cadastro que foi feito incorretamente.
 
 Para que a remoção seja liberada você deve primeiro fornecer um ID válido.
 
-ID válido corresponde a um ID que possua um cadastro de alguém com o status de Rebelde.
+ID válido corresponde a um ID que possua um cadastro de alguém com o status de view.Rebelde.
 
-Se o ID fornecido for válido será liberada a função para a remoção de outro ID (seja Rebelde ou Traidor).
+Se o ID fornecido for válido será liberada a função para a remoção de outro ID (seja view.Rebelde ou Traidor).
 
 Por favor, preste muita atenção, pois essa ação não poderá ser desfeita.
 
@@ -37,7 +37,7 @@ Aqui você pode reportar alguém como Traidor.
 
 É necessário ter um ID válido para poder reportar outro ID como traidor.
 
-Se um ID receber 3 reportes ele terá seu status alterado de Rebelde para Traidor.
+Se um ID receber 3 reportes ele terá seu status alterado de view.Rebelde para Traidor.
 
 ### Ver Relatório:
 
@@ -52,7 +52,7 @@ Aqui você pode ver os seguintes dados (lista completa de todos os cadastros exi
 - Idade;
 - Gênero;
 - Localização;
-- Status (Rebelde ou Traidor);
+- Status (view.Rebelde ou Traidor);
 - Números de reportes recebidos.
 
 ### Ver inventário:

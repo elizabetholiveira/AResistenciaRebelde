@@ -11,11 +11,13 @@ public class UsuarioView {
     private Scanner entrada;
     private UsuarioService usuarioService;
     private UsuarioModel usuarioModel;
+    private Rebelde rebelde;
 
     public UsuarioView(){
         entrada = new Scanner(System.in);
         usuarioService = new UsuarioService();
         usuarioModel = new UsuarioModel();
+        rebelde = new Rebelde();
     }
 
     public void inicializacao(){
@@ -29,22 +31,13 @@ public class UsuarioView {
                     System.out.println("Saindo...");
                     usuarioService.fecharConexao();
                     break;
-                case 1: //Cadastrar Rebelde
-                    System.out.println("Nome:");
-                    String nome = entrada.nextLine();
-                    System.out.println("Idade:");
-                    int idade = entrada.nextInt();
-                    System.out.println("Gênero:");
-                    entrada.nextLine();
-                    String genero = entrada.nextLine();
-                    System.out.println("Localização:");
-                    String localizacao = entrada.nextLine();
-                    usuarioService.cadastrarRebelde(nome, idade, genero, localizacao);
+                case 1: //Cadastrar view.Rebelde
+                    rebelde.usuarioCadastrarRebelde();
                     break;
                 case 2: //Remover Cadastro
                     System.out.println("Digite o seu ID");
                     long seuId = entrada.nextLong();
-                    if (usuarioService.identificarCadastro(seuId) == true && usuarioService.identificarStatus(seuId).equals("Rebelde")){
+                    if (usuarioService.identificarCadastro(seuId) == true && usuarioService.identificarStatus(seuId).equals("view.Rebelde")){
                         System.out.println("Digite o ID que deseja remover");
                         usuarioService.removerRebelde(entrada.nextLong());
                     }
@@ -52,12 +45,12 @@ public class UsuarioView {
                 case 3: //Reportar Traidor
                     System.out.println("Digite o seu ID");
                     seuId = entrada.nextLong();
-                    if (usuarioService.identificarCadastro(seuId) == true && usuarioService.identificarStatus(seuId).equals("Rebelde")) {
+                    if (usuarioService.identificarCadastro(seuId) == true && usuarioService.identificarStatus(seuId).equals("view.Rebelde")) {
                         System.out.println("Digite o ID do rebelde que deseja reportar como traidor");
                         long id = entrada.nextLong();
                         if (usuarioService.identificarCadastro(id) == true) {
                             String status = usuarioService.identificarStatus(id);
-                            if (status.equals("Rebelde")) {
+                            if (status.equals("view.Rebelde")) {
                                 usuarioService.adicionarReporte(id);
                             } else if (status.equals("Traidor")) {
                                 System.out.println("Esse ID já é considerado um traidor!");
@@ -89,7 +82,7 @@ public class UsuarioView {
                     System.out.println("Digite o ID do rebelde");
                     id = entrada.nextLong();
                     if (usuarioService.identificarCadastro(id) == true){
-                        if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                        if (usuarioService.identificarStatus(id).equals("view.Rebelde")) {
                             if (usuarioService.identificarCadastroLoja(id) == false) {
                                 usuarioService.adquirirCreditos(id);
                             } else {
@@ -107,7 +100,7 @@ public class UsuarioView {
                     System.out.println("Digite o ID do rebelde");
                     id = entrada.nextLong();
                     if (usuarioService.identificarCadastro(id) == true){
-                        if (usuarioService.identificarStatus(id).equals("Rebelde")) {
+                        if (usuarioService.identificarStatus(id).equals("view.Rebelde")) {
                             if (usuarioService.identificarCadastroLoja(id) == true) {
                                 usuarioService.verLoja();
                                 System.out.println("Digite o ID do produto que deseja comprar");
@@ -172,7 +165,7 @@ public class UsuarioView {
         System.out.println("Boas-vindas!");
         System.out.println("Digite uma das opções (em caso de dúvida, consulte o manual(README))");
         System.out.println("0) Sair");
-        System.out.println("1) Cadastrar Rebelde");
+        System.out.println("1) Cadastrar view.Rebelde");
         System.out.println("2) Remover Cadastro");
         System.out.println("3) Reportar Traidor");
         System.out.println("4) Ver relatório");

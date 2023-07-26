@@ -27,10 +27,10 @@ public class UsuarioService {
         }
     }
 
-    //Cadastrar Rebelde
+    //Cadastrar view.Rebelde
     public void cadastrarRebelde(String nome, int idade, String genero, String localizacao){
         String sql = "insert into rebeldes (nome, idade, genero, localizacao, status, reportes) values ('" + nome + "', '"
-                + idade + "', '" + genero + "', '" + localizacao + "', 'Rebelde', '0');";
+                + idade + "', '" + genero + "', '" + localizacao + "', 'view.Rebelde', '0');";
         try {
             statement.executeUpdate(sql);
             System.out.println("Dado inserido com sucesso!");
@@ -81,7 +81,7 @@ public class UsuarioService {
         int numTraidores = 0;
 
         //Pegar rebeldes
-        String sql1 = "SELECT FROM rebeldes WHERE status = 'Rebelde'";
+        String sql1 = "SELECT FROM rebeldes WHERE status = 'view.Rebelde'";
         try{
             ResultSet resultSet = statement.executeQuery(sql1);
             while (resultSet.next()){
